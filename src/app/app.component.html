@@ -163,13 +163,17 @@
           </div>
         </div>
 
-        <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card mdl-shadow--2dp" *ngIf="configuration">
           <div class="mdl-card__title">
             <h2 class="mdl-card__title-text">Demo Options</h2>
           </div>
           <div class="mdl-card__actions mdl-card--border">
             <div class="mdl-card__supporting-text">
-
+              <h6>Demo Devices Bypass Configuration Changes</h6>
+              <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+                <input type="checkbox" id="switch-2" class="mdl-switch__input" [ngModel]="configuration.bp" (change)="updateBypass($event)">
+                <span class="mdl-switch__label"></span>
+              </label>
             </div>
           </div>
         </div>

@@ -142,6 +142,10 @@ export class AppComponent implements AfterViewInit {
     if (message.type === 'configuration') {
       this.configuration = message.configuration;
 
+      if (this.configuration.bp === null) {
+        this.configuration.bp = false;
+      }
+
       setTimeout(() => {
         componentHandler.upgradeDom();
       }, 0);
@@ -187,6 +191,11 @@ export class AppComponent implements AfterViewInit {
 
   updateDemo(evt) {
     // this.gameService.setDemoDevice(evt.target.checked);
+  }
+
+  updateBypass(evt) {
+    this.configuration.bp = evt.target.checked;
+    this.publishConfigurationChange();
   }
 
   changeState(state) {
